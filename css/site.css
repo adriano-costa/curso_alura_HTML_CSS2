@@ -3,6 +3,8 @@ body {
     background-color: #F2FFFC;
     font-size: 120%;
     line-height: 1.5;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 h1,
@@ -61,6 +63,11 @@ main p {
     margin-bottom: 25px;
 }
 
+.navegacao-site a:hover,
+.navegacao-site a:focus {
+    text-shadow: 0 0 2px pink;
+}
+
 .rodape-pagina {
     color: #F2FFFC;
     padding: 20px;
@@ -100,6 +107,34 @@ em {
     height: 40px;
     display: block;
     text-indent: -99999px;
+	position: relative;
+}
+
+.icones-redes-sociais a:hover::after,
+.icones-redes-sociais a:focus::after {
+    content: attr(data-tooltip);
+	position: absolute;
+    top: 125%;
+    right: 0;
+    text-indent: 0;
+	width: 300%;
+	background: black;
+    font-size: .75em;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.icones-redes-sociais a:hover::before,
+.icones-redes-sociais a:focus::before{
+	content: "  ";
+	position: absolute;
+	text-indent: 0;
+	background: black;
+	width: 10px;
+	height: 10px;
+	right: 40%;
+	top: 110%;
+	transform: rotate(45deg);
 }
 
 .github {
@@ -115,8 +150,7 @@ em {
 }
 
 main {
-    width: 80%;
-    float: left;
+	flex-grow: 1;
     padding-bottom: 80px;
 }
 
@@ -128,10 +162,8 @@ main {
 }
 
 .navegacao-site {
-    width: 20%;
-    float: right;
-    position: relative;
-    top: 300px;
+    width: calc(0.90 * 300px);
+    padding-top: calc(300px + 1em);
 }
 
 .minha-foto {
@@ -139,4 +171,6 @@ main {
     top: 0;
     right: 0;
     height: 300px;
+	border-bottom: .5em solid black;
+
 }
